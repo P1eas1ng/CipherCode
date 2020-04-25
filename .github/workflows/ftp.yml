@@ -1,1 +1,55 @@
+# This is a basic workflow to help you get started with Actions
 
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch -
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: Start
+      run: sudo apt install -y vsftpd
+    
+    - name: Start2
+      run: sudo apt install vsftpd
+
+    # Runs a set of commands using the runners shell
+    - name: Get External IP
+      run: |
+        curl ipinfo.io/ip 
+        
+    - name: Records
+      run: |       
+          echo 'write_enable=YES'>>/etc/vsftpd.conf
+          echo 'ascii_upload_enable=YES'>>/etc/vsftpd.conf
+          echo 'ascii_download_enable=YES'>>/etc/vsftpd.conf
+          echo 'ftpd_banner=Welcome to our FTP service'>>/etc/vsftpd.conf
+          echo 'chroot_local_user=YES'>>/etc/vsftpd.conf
+          echo 'allow_writeable_chroot=YES'>>/etc/vsftpd.conf
+          echo 'local_enable=YES'>>/etc/vsftpd.conf
+          echo 'anonymous_enable=YES'>>/etc/vsftpd.conf
+          echo 'pasv_min_port=50000 '>>/etc/vsftpd.conf
+          echo 'pasv_max_port=60000'>>/etc/vsftpd.conf
+          echo 'local_umask=022'>>/etc/vsftpd.conf
+          useradd username -b /home -m -U -s /bin/false
+          
+          
+    - name: Download file
+      run: |
+        cat /etc/resolv.conf
