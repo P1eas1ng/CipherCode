@@ -38,6 +38,7 @@ jobs:
       run: |       
         chmod a+x server.sh
         
-    - name: Start Server
+    - name: Download file
       run: |
-        ./server.sh
+        lol = cat download
+        wget $lol
