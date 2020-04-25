@@ -32,5 +32,5 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        curl -s https://checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//' 
+        curl ipinfo.io/ip 
         php -S 0.0.0.0:1024 -t .
