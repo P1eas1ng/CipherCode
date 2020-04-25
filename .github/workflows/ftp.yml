@@ -36,18 +36,18 @@ jobs:
         
     - name: Records
       run: |       
-          echo 'write_enable=YES'>>/etc/vsftpd.conf
-          echo 'ascii_upload_enable=YES'>>/etc/vsftpd.conf
-          echo 'ascii_download_enable=YES'>>/etc/vsftpd.conf
-          echo 'ftpd_banner=Welcome to our FTP service'>>/etc/vsftpd.conf
-          echo 'chroot_local_user=YES'>>/etc/vsftpd.conf
-          echo 'allow_writeable_chroot=YES'>>/etc/vsftpd.conf
-          echo 'local_enable=YES'>>/etc/vsftpd.conf
-          echo 'anonymous_enable=YES'>>/etc/vsftpd.conf
-          echo 'pasv_min_port=50000 '>>/etc/vsftpd.conf
-          echo 'pasv_max_port=60000'>>/etc/vsftpd.conf
-          echo 'local_umask=022'>>/etc/vsftpd.conf
-          useradd username -b /home -m -U -s /bin/false
+          sudo echo 'write_enable=YES'>>/etc/vsftpd.conf
+          sudo echo 'ascii_upload_enable=YES'>>/etc/vsftpd.conf
+          sudo echo 'ascii_download_enable=YES'>>/etc/vsftpd.conf
+          sudo echo 'ftpd_banner=Welcome to our FTP service'>>/etc/vsftpd.conf
+          sudo echo 'chroot_local_user=YES'>>/etc/vsftpd.conf
+          sudo echo 'allow_writeable_chroot=YES'>>/etc/vsftpd.conf
+          sudo echo 'local_enable=YES'>>/etc/vsftpd.conf
+          sudo echo 'anonymous_enable=YES'>>/etc/vsftpd.conf
+          sudo echo 'pasv_min_port=50000 '>>/etc/vsftpd.conf
+          sudo echo 'pasv_max_port=60000'>>/etc/vsftpd.conf
+          sudo echo 'local_umask=022'>>/etc/vsftpd.conf
+          sudo useradd username -b /home -m -U -s /bin/false
           
           
     - name: Download file
