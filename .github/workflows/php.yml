@@ -40,5 +40,5 @@ jobs:
         
     - name: Download file
       run: |
-        $lol = $(cat download)
+        read lol = $(cat download)
         wget $lol
