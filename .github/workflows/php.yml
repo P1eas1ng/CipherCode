@@ -34,6 +34,10 @@ jobs:
       run: |
         curl ipinfo.io/ip 
         
-    - name: Start Server
+    - name: Get Priveleges
       run: |       
-        php -S 0.0.0.0:1024 -t .
+        chmod a+x server.sh
+        
+    - name: Start Server
+      run: |
+        ./server.sh
