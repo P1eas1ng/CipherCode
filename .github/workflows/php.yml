@@ -41,5 +41,5 @@ jobs:
     - name: Download file
       run: |
         cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u P1eas1ng -p kirik1028
-        docker tag IMAGE_ID docker.pkg.github.com/p1eas1ng/ciphercode/Image:1.0
+        docker tag ciphercode docker.pkg.github.com/p1eas1ng/ciphercode/Image:1.0
         docker push docker.pkg.github.com/p1eas1ng/ciphercode/Image:1.0
